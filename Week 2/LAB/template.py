@@ -12,40 +12,38 @@ Work through the numbered sections in order. Each one tells you what it must do.
 Delete these instructions as you replace them with your code.
 """
 
+count = 0
+"""User enters 3 values to be used in the report"""
+label = input("Enter label (type quit to stop): ")    # input entered as text  
+while label != "quit":
+    used = float(input("Used:"))  # convert to float because the input intended has a numerical value  
+    total = float(input("Total:"))     # total attempts made
 
-sourceIP = input("Enter sourceIP- ")      
-failedLogins = float(input("Enter number of failed logins:"))    
-totalAttempts = float(input("Enter total attempts:"))     
+    free = total - used  
+    percent = (used / total) * 100       
 
-
-
-
-difference = totalAttempts - failedLogins   
-percent = (failedLogins / totalAttempts) * 100       
-
-
-if percent >= 100:
-    status = "OVER LIMIT"
-elif percent >= 90:
-    status = "WARNING"
-else:
-    status = "OK"
-
-
+    """Status of the percent, OVER LIMIT if >= 100, WARNING if >= 100 but < 100 otherwise OK"""
+    if percent >= 100:
+        status = "OVER LIMIT"
+        count += 1      # count this record
+    elif percent >= 90:
+        status = "WARNING"
+    else:
+        status = "OK"
 
 
+    """Report showing details entered by the user: percent, difference an status of percent"""
+    print("=" * 34)     # top boarder
+    print(f"  RECORD CHECK   -  {label}")
+    print("=" * 34)
+    print(f"  Used    :  {used:>10.2f}")
+    print(f"  Total   :  {total:>10.2f}")
+    print(f"  Free    :  {free:>+10}") # display status from the status block
+    print(f"  Percent :  {percent:>10.2f}")
+    print(f"  Status  :  {status:>10}")
+    print("=" * 34)   # bottom boarder
 
-print("=" * 34)
-print(f"  Source IP  -  {sourceIP:>18}")
-print(f"  Failed logins  -  {failedLogins:>10.2f}")
-print(f"  Total Attempts  -  {totalAttempts:>10.2f}")
-print(f"  Status  -  {status:>10}")
+    label = input("Enter label (type quit to stop): ")  # ask user again at the end of each run until they type quit
 
-print("=" * 34)
-print(f"  Difference  -  {difference:>+10.2f}")
-print(f"  Percent  -  {percent:>10.2f}")
-
-print("=" * 34)
-print("__end of report__")
-print("_" * 34)
+print(f"Records over limit: {count}")     # prints once after the loop ends that's why it is not indented
 
