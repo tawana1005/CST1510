@@ -77,7 +77,5 @@ with open("record_sample.txt", 'w') as f:
 
 print("Records over limit= ", count)
 
-
-
 # ==========================================================================
 #    FileNotFound error shows when file does not exist or if the path is not correctly input
