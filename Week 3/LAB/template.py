@@ -44,7 +44,6 @@ def print_report(label, value, limit, difference, percent, status):
     # <15 left align with 15 spaces to accomodate all icluding the longest line 'Failed logins'
     # remember argument will align with paramemter
    
-
 # ==================================================================== INPUT
 
 #sourceIP = input("Enter source IP: ")     
@@ -54,8 +53,6 @@ def print_report(label, value, limit, difference, percent, status):
 #i observed that when i ran the code it ws asking to enter these 3 inputs twice before it proceeded
 # now i have to remove this line of code since i have already included it in the loop below
       
-
-
 # ================================================================== PROCESS
 
 #difference, percent = check(failedLogins, totalAttempts)

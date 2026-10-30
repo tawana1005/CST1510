@@ -2,6 +2,7 @@
 # Run it, read the last line, then fix it.
 
 def status_of(percent, warning_at=90): # fix- putting a default value
+    """Returns OVER LIMIT, WARNING or OK on the vaue being checked"""
     if percent >= 100:
         return "OVER LIMIT"
     elif percent >= warning_at:
